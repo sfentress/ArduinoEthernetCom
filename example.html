@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="ArduinoEthernetCom.js"></script>
+    <script>
+      window.onload = function() {
+        var aec  = new ArduinoEthernetCom( {frequency: 2} ),
+            pins = ["A0", "A1", "A2", "A3", "A4", "A5"];
+        
+        aec.addObserver(function(data) {
+          var a0 = data.A0,
+              a5 = data.A5;
+          document.getElementById('a0val').innerHTML = a0;
+          document.getElementById('a5val').innerHTML = a5;
+        });
+        
+        document.getElementById('runButton').onclick = function() {
+          aec.start();
+        }
+      }
+    </script>
+  <head>
+  <body style="text-align: left; font-size: 1.1em">
+    <div>
+      To start streaming data from your Arduino over a Ethernet cable, simply
+      <ol>
+        <li>
+          Upload the tiny <a href="Arduino/JSONPSensorServer.ino">server sketch</a> to your Arduino
+        </li>
+        <li>
+          Plug in your ethernet shield, connect the Arduino to your computer with an ethernet cable and wait about 30 seconds for the Arduino server to boot up
+        </li>
+        <li>
+          Click the "Start Reading" button below
+        </li>
+      </ol>
+    </div>
+    <div>
+      <button id="runButton">Start Reading</button>
+    </div>
+    <div style="padding: 15px;">
+      Pin A0's value: <span id="a0val">&mdash;</span><br/>
+      Pin A5's value: <span id="a5val">&mdash;</span>
+    </div>
+    <div>
+      To read more about streaming data to your computer over an Ethernet cable, read <a href="http://blog.concord.org/streaming-arduino-data-to-a-browser">this blog post</a>.
+    </div>
+  </body>
+</html>
