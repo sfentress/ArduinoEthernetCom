@@ -1,13 +1,14 @@
 /*
   ==========================================================================
   Project:   ArduinoEthernetCom
+  Repo:      http://github.com/sfentress/ArduinoEthernetCom
   Copyright: ©2010 Concord Consortium, see README for license
   Author:    Sam Fentress <sfentress@gmail.com>
   ==========================================================================
   
   ArduinoEthernetCom library for simple communication with an Arduino via an Ethernet connection.
   
-  See README for license and documentation, and example.html to see it live.
+  See README for license and documentation, and http://sfentress.github.com/ArduinoEthernetCom/example.html to see it live.
   
   This library will add two global objects to your JavaScript environment, ArduinoEthernetCom and the callback
   function for the Arduino server, arduinoEthernetComCallback.

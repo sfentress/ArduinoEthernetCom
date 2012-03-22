@@ -1,16 +1,19 @@
 ArduinoEthernetCom: Simple communication between Arduinos and Browsers
 ========================================================================
 
-The ArduinoEthernetCom library was created to simplify communication between Arduinos and browsers without requiring Flash or Java or drivers or anything else.
+The ArduinoEthernetCom library was created to simplify communication between Arduinos and browsers without requiring
+Flash or Java or drivers or anything else.
 
-ArduinoEthernetCom allows you to create a simple server on an Ethernet-enabled Arduino (i.e. an Arduino with an Ethernet shield, or an ArduinoEthernet) by uploading a tiny sketch to the device, and then stream data into the browser over an Ethernet connection.
+ArduinoEthernetCom allows you to create a simple server on an Ethernet-enabled Arduino (i.e. an Arduino with an Ethernet
+shield, or an ArduinoEthernet) by uploading a tiny sketch to the device, and then stream data into the browser over an
+Ethernet connection. You can see an example running live on GitHub [here](http://sfentress.github.com/ArduinoEthernetCom/example.html).
 
 To read more about streaming data to your computer over an Ethernet cable, read [this blog post](http://blog.concord.org/streaming-arduino-data-to-a-browser).
 
 License
 -------
 
-Lab is Copyright 2012 (c) by the Concord Consortium and is distributed under
+ArduinoEthernetCom is Copyright 2012 (c) by the Concord Consortium and is distributed under
 any of the following licenses:
 
 - [Simplified BSD](http://www.opensource.org/licenses/BSD-2-Clause),
