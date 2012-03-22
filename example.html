@@ -3,8 +3,7 @@
     <script src="ArduinoEthernetCom.js"></script>
     <script>
       window.onload = function() {
-        var aec  = new ArduinoEthernetCom( {frequency: 2} ),
-            pins = ["A0", "A1", "A2", "A3", "A4", "A5"];
+        var aec  = new ArduinoEthernetCom( {frequency: 2} );
         
         aec.addObserver(function(data) {
           var a0 = data.A0,
