@@ -8,7 +8,8 @@
   
   ArduinoEthernetCom library for simple communication with an Arduino via an Ethernet connection.
   
-  See README for license and documentation, and http://sfentress.github.com/ArduinoEthernetCom/example.html to see it live.
+  See README for license and documentation, and http://sfentress.github.com/ArduinoEthernetCom/example.html
+  to see it live.
   
   This library will add two global objects to your JavaScript environment, ArduinoEthernetCom and the callback
   function for the Arduino server, arduinoEthernetComCallback.
@@ -17,17 +18,19 @@
 (function () {
   
   // Defaults
-  var ARDUINO_SERVER_IP    = "http://169.254.1.1",
-      FREQUENCY            = 2,
-      GENERATE_RANDOM_DATA = false;
+  var ARDUINO_SERVER_IP      = "http://169.254.1.1",
+      FREQUENCY              = 2,
+      GENERATE_RANDOM_DATA   = false,
+      CALLBACK_FUNCTION_NAME = 'arduinoEthernetComCallback';
 
   var ArduinoEthernetCom = function (options) {
       this.arduino_server_ip = options.arduino_server_ip || ARDUINO_SERVER_IP;
       this.frequency = options.frequency || (options.delay_time ? 1000 / options.delay_time : 0 || FREQUENCY);
       this.generate_random_data = options.generate_random_data || GENERATE_RANDOM_DATA;
+      var callback_function_name = options.callback_function_name || CALLBACK_FUNCTION_NAME;
       
       var self = this;
-      window.arduinoEthernetComCallback = function(jsonString) {
+      window[callback_function_name] = function(jsonString) {
         self.callback(jsonString);
       }
     };
@@ -61,15 +64,15 @@
 
     getData: function () {
       if (this.arduino_server_ip && !this.generate_random_data) {
-        this.getJSONP(this.arduino_server_ip, 'arduinoEthernetComCallback');
+        this.getJSONP(this.arduino_server_ip);
       } else {
-        this.callback(this.nextRandomData());
+        this.callback(this.getNextRandomData());
       }
     },
 
     currentRandomData: null,
 
-    nextRandomData: function () {
+    getNextRandomData: function () {
       var i, ii, pin;
       if (!this.currentRandomData) {
         this.currentRandomData = {};
@@ -96,7 +99,7 @@
       }
     },
     
-    getJSONP: function (url, callback) {
+    getJSONP: function (url) {
       var oHead = document.getElementsByTagName('HEAD').item(0),
           oScript= document.createElement("script");
       oScript.type = "text/javascript";
