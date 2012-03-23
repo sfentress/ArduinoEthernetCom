@@ -57,6 +57,8 @@ You can pass a hash of options to ArduinoEthernetCom, e.g. `var arduinoEthernetC
   * Alternative way of defining frequency, in ms. **Default**: None, the above already defines 250 ms
 * **generate\_random\_data**: 
   * If true, random floating voltages will be generated for all 6 pins. This means you don't need to connect an Arduino, so it can be used for testing. **Default**: false
+* **callback_function_name**:
+  * The function called by the Arduino's script to send JSON-P data. This shouldn't be changed unless the sketch is modified. **Default**: arduinoEthernetComCallback
 
 Using this with an Arduino on a web page
 ----------------------------------------
